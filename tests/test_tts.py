@@ -79,7 +79,7 @@ def test_api_error_is_bounded(monkeypatch, tmp_path, fake_response):
     fake_response.status_code = 401
     fake_response.payload = {"err_msg": "invalid credentials"}
     monkeypatch.setattr(tts, "post", lambda **kwargs: fake_response)
-    with pytest.raises(RuntimeError, match="HTTP 401.*invalid credentials"):
+    with pytest.raises(RuntimeError, match=r"HTTP 401.*invalid credentials"):
         DeepgramTTSProvider().synthesize("hello", str(tmp_path / "x.mp3"))
 
 
