@@ -1,0 +1,57 @@
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "hermes-deepgram-voice-plugin"
+version = "0.1.0"
+description = "Deepgram Aura TTS and Nova STT plugin for Hermes Agent"
+readme = "README.md"
+requires-python = ">=3.11,<3.14"
+license = "MIT"
+authors = [{ name = "Jayson Santos dos Reis" }]
+keywords = ["hermes-agent", "deepgram", "text-to-speech", "speech-to-text", "tts", "stt"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+]
+dependencies = [
+  "requests>=2.32.5,<3",
+]
+
+[project.urls]
+Homepage = "https://github.com/jaysonsantos/hermes-deepgram-voice-plugin"
+Issues = "https://github.com/jaysonsantos/hermes-deepgram-voice-plugin/issues"
+
+[project.entry-points."hermes_agent.plugins"]
+deepgram-voice = "hermes_deepgram_voice"
+
+[dependency-groups]
+dev = [
+  "pre-commit>=4.2,<5",
+  "pytest>=8.4,<9",
+  "pytest-cov>=6.2,<7",
+  "ruff>=0.12,<0.13",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["hermes_deepgram_voice"]
+
+[tool.pytest.ini_options]
+addopts = "-ra --strict-markers --cov=hermes_deepgram_voice --cov-report=term-missing --cov-fail-under=90"
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "lf"

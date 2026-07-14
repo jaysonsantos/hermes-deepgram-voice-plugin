@@ -1,0 +1,11 @@
+manifest_version: 1
+name: deepgram-voice
+version: 0.1.0
+description: "Deepgram Aura text-to-speech and Nova speech-to-text providers for Hermes Agent."
+author: Jayson Santos dos Reis
+kind: backend
+requires_env:
+  - name: DEEPGRAM_API_KEY
+    description: "Deepgram API key for Aura TTS and Nova STT"
+    url: "https://console.deepgram.com/"
+    secret: true
