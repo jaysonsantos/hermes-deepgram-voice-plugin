@@ -31,10 +31,10 @@ deepgram-voice = "hermes_deepgram_voice"
 
 [dependency-groups]
 dev = [
-  "pre-commit>=4.2,<5",
+  "pre-commit>=4.6.1,<5",
   "pytest>=9.1,<10",
   "pytest-cov>=7.1,<8",
-  "ruff>=0.15.21,<0.16",
+  "ruff>=0.16.0,<0.17",
 ]
 
 [tool.hatch.build.targets.wheel]
