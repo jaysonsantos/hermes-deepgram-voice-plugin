@@ -7,7 +7,7 @@ name = "hermes-deepgram-voice-plugin"
 version = "0.1.0"
 description = "Deepgram Aura TTS and Nova STT plugin for Hermes Agent"
 readme = "README.md"
-requires-python = ">=3.11,<3.14"
+requires-python = ">=3.11"
 license = "MIT"
 authors = [{ name = "Jayson Santos dos Reis" }]
 keywords = ["hermes-agent", "deepgram", "text-to-speech", "speech-to-text", "tts", "stt"]
@@ -17,6 +17,7 @@ classifiers = [
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
   "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
 ]
 dependencies = [
   "requests>=2.32.5,<3",

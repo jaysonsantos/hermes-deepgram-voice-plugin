@@ -84,13 +84,17 @@ The plugin requires a Hermes version with `PluginContext.register_tts_provider()
 
 ## Development
 
-Requirements: [uv](https://docs.astral.sh/uv/) and Python 3.11–3.13.
+Requirements: [uv](https://docs.astral.sh/uv/) and Python >= 3.11.
+
+Contract tests import Hermes' provider and config modules. Hermes does not publish wheels, so check out `main` and editable-install that tree. `hermes_cli.config` needs the `ruamel.yaml` pin from the same checkout; `scripts/install-hermes-contract.sh` installs both. Run that script again after `uv sync`, which removes packages that are not in `uv.lock`.
 
 ```bash
 uv sync --all-groups
 uv run ruff check .
 uv run ruff format --check .
-PYTHONPATH=$HOME/.hermes/hermes-agent uv run pytest
+git clone --depth 1 https://github.com/NousResearch/hermes-agent.git hermes-agent
+bash scripts/install-hermes-contract.sh
+uv run pytest
 uv run pre-commit run --all-files
 uv build
 ```
